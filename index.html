@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Locomotive scroll -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+<title>NaturesHuman</title>
+
+<style>
+
+    @font-face {
+    font-family: "Naturesfont";
+    src: url("fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+}
+
+/* Apply font to full website */
+body{
+    font-family: "Naturesfont", sans-serif;
+}
+
+
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.2);
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#0b6b3a;
+}
+
+.nav-links a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#222;
+    font-weight:500;
+}
+
+/* Section base */
+.section{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px 40px;
+    text-align:center;
+}
+
+/* Hero */
+.hero{
+    background: url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg") no-repeat center/cover;
+    color:white;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+    font-family: "Naturesfont",sans-serif;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:600px;
+}
+
+/* About */
+.about{
+    background:#f4fdf7;
+}
+
+.about img{
+    width:100%;
+    max-width:500px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* Mission */
+.mission{
+    background:#e8f5e9;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    width:250px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Contact */
+.contact{
+    background:#dcedc8;
+}
+
+.contact form{
+    display:flex;
+    flex-direction:column;
+    width:300px;
+    margin-top:20px;
+}
+
+.contact input, .contact textarea{
+    margin:8px 0;
+    padding:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+.contact button{
+    padding:10px;
+    background:#0b6b3a;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* Footer */
+footer{
+    background:#0b6b3a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:32px;
+    }
+}
+
+
+.marquee-section{
+    width:100%;
+    overflow:hidden;
+    background:#0b6b3a;
+    color:white;
+    padding:15px 0;
+}
+
+.marquee{
+    display:flex;
+    width:fit-content;
+}
+
+.track{
+    white-space:nowrap;
+    font-size:20px;
+    padding-right:50px;
+    animation: scrollMarquee 6s linear infinite;
+}
+
+/* KEY FIX HERE 👇 */
+@keyframes scrollMarquee{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-card {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+  }
+
+  .contact-card h2 {
+    margin: 0 0 20px 0;
+    color: #1a1a1b;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  /* Input Group Styling */
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  input[type="email"],
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 5px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    outline: none;
+    background-color: #fafafa;
+  }
+
+  /* Focus States - The "Clean" Secret */
+  input:focus, 
+  textarea:focus {
+    border-color: #3b82f6;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* Button Styling */
+  .send-btn {
+    width: 100%;
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+  }
+
+  .send-btn:hover {
+    background-color: #2563eb;
+  }
+
+  .send-btn:active {
+    transform: scale(0.98);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "KT8TPaxxOQlVz-Hug",
+      });
+   })();
+</script>
+<script  src="script2.js"></script>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">NaturesHuman</div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+
+<div class="scroll-container">
+
+<!-- Hero Section -->
+<section id="home" class="section hero">
+    <h1>Connecting Humans with Nature 🌿</h1>
+    <p>We believe in living in harmony with nature for a healthy and peaceful life.</p>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section about">
+    <h2>About NaturesHuman</h2>
+    <p>NaturesHuman is a platform to spread awareness about natural living, eco lifestyle and mental wellbeing.</p>
+    <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="nature">
+</section>
+
+
+
+<section class="marquee-section">
+    <div class="marquee">
+        <div class="track">
+            🌿 Nature • Human • Peace • Wellness • Sustainability • Meditation • Yoga • Environment •
+        </div>
+        <div class="track">
+            🌿 Nature • Human • Peace • Wellness • Sustainability • Meditation • Yoga • Environment •
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Mission Section -->
+<section id="mission" class="section mission">
+    <h2>Our Mission</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🌱 Eco Living</h3>
+            <p>Promote sustainable and eco friendly lifestyle.</p>
+        </div>
+
+        <div class="card">
+            <h3>🧘 Mental Health</h3>
+            <p>Encourage meditation and peaceful living.</p>
+        </div>
+
+        <div class="card">
+            <h3>🌍 Awareness</h3>
+            <p>Spread awareness about environment protection.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<!-- <form onsubmit="sendMail(); return false;">
+<input type="email" id="email" placeholder="Your Email" required>
+<input type="text" id="phone" placeholder="Your Phone" required>
+<textarea id="message" placeholder="Your Message (optional)"></textarea>
+
+<button onclick="sendMail()">Send</button>
+</form> -->
+
+
+
+
+<div class="contact-card">
+  <h2>Get in Touch</h2>
+  <form onsubmit="sendMail(); return false;">
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <input type="text" id="phone" placeholder="Your Phone" required>
+    </div>
+    <div class="form-group">
+      <textarea id="message" placeholder="How can we help? (optional)"></textarea>
+    </div>
+    <button type="submit" class="send-btn">Send Message</button>
+  </form>
+</div>
+
+
+<script>
+
+    function sendMail() {
+
+    let parms = {
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value
+    };
+
+    // 👉 Mail to YOU
+    emailjs.send("service_1yhj2zi", "template_1ln9r0x", parms)
+
+    // 👉 Mail to USER
+    emailjs.send("service_1yhj2zi", "template_eu3rusc", parms)
+
+    .then(function() {
+        alert("✅ Message Sent Successfully!");
+    })
+    .catch(function(error) {
+        console.log("FAILED...", error);
+        alert("Failed to send mail: " + JSON.stringify(error));
+    });
+}
+</script>
+
+
+
+
+</div>
+
+<footer>
+    © 2026 NaturesHuman | Made with ❤️ for Nature
+</footer>
+
+<script>
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('.scroll-container'),
+    smooth: true
+});
+</script>
+
+
+</body>
+</html>
